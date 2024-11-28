@@ -14,7 +14,6 @@ contentRouter.post("/content", async (req , res) => {
         title,
         link,
         type,
-        // @ts-ignore
         userId: req.userId,
         tags: []
     })
@@ -24,8 +23,9 @@ contentRouter.post("/content", async (req , res) => {
 })
 
 contentRouter.get("/content", async (req, res) => {
-        //@ts-ignore
-    const userId = req.userId,
+
+    const userId = req.userId;
+    
     const content = await ContentModal.find({
         userId: userId,
     }).populate("userId", "email") // this will get the email of the person how creatd the content
@@ -39,7 +39,6 @@ contentRouter.delete("/content", async (req, res) => {
 
     await ContentModal.deleteMany({
         contentId,
-        //@ts-ignore
         userId: req.userId
     })
 

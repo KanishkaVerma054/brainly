@@ -18,7 +18,7 @@ userRouter.post("/signup", async (req, res) => {
       .regex(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
       ),
-    username: z.string().min(3).max(10),
+    // username: z.string().min(3).max(10),
   });
   const parseDataWithSuccess = requireBody.safeParse(req.body);
 
@@ -37,7 +37,7 @@ userRouter.post("/signup", async (req, res) => {
     await UserModel.create({
       email: email,
       password: hashedPassword,
-      username: username,
+      // username: username
     });
   } catch (error) {
     console.log("Error while puttting it into DB", error);

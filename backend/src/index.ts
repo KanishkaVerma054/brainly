@@ -11,8 +11,9 @@ const app = express();
 app.use(express.json());
 
 app.use("/api/v1", userRouter);
-app.use("/api/v1/", userMiddleware, contentRouter);
 app.use("/api/v1/brain", shareRouter);
+app.use("/api/v1", userMiddleware, contentRouter);
+
 
 mongoose
   .connect(MONGO_URI as string)
