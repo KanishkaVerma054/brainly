@@ -37,7 +37,7 @@ shareRouter.post("/share", userMiddleware, async (req, res) => {
         });
 
         res.json({
-            message: "Removed link"
+            message: "Link removed"
         })
     }
 })
